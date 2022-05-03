@@ -1,11 +1,9 @@
-package Err.One
-
-import Err.One.FragmentHome.Fragment_List
-import Err.One.FragmentHome.Fragment_Setting
-import android.content.Intent
+package todo.ui
+import Err.One.R
+import todo.ui.FragmentHome.Fragment_List
+import todo.ui.FragmentHome.Fragment_Setting
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -35,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun FloatingFragmentDilago() {
         addButton.setOnClickListener{
-        val addBottomSheet=FrameDialoge_Add()
+        //val addBottomSheet=FrameDialoge_Add()
             AddBottonSheet.show(supportFragmentManager,"")
             AddBottonSheet.onTodoAddedListener=object:FrameDialoge_Add.OnTodoAddedListener{
                 override fun onTodoAdded() {

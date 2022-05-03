@@ -1,5 +1,6 @@
-package Err.One
+package todo.ui
 
+import Err.One.R
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,7 +15,7 @@ class SplashScreen : AppCompatActivity() {
             val intent =Intent(this,MainActivity::class.java)
             startActivity(intent)
             finish()
-        },1500)
+        },2000)
 
     }
 }
