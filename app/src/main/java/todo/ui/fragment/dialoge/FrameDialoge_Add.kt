@@ -1,7 +1,6 @@
-package com.route.todo_c35_sat
+package todo.ui.fragment.dialoge
 
-import Err.One.R
-import todo.ui.DataBase.clearTime
+import todo.database.date.clearTime
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,10 +9,13 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.textfield.TextInputLayout
-import com.route.todo_c35_sat.database.MyDataBase
-import com.route.todo_c35_sat.database.model.Todo
+import todo.database.entity.Todo
+import todo.database.table.MyDatabase
+import todo.ui.R
+import todo.ui.databinding.FrameAddBinding
 import java.util.*
 
 class FrameDialoge_Add : BottomSheetDialogFragment() {
@@ -21,18 +23,23 @@ class FrameDialoge_Add : BottomSheetDialogFragment() {
     lateinit var detailsLayout: TextInputLayout
     lateinit var chooseDate: TextView
     lateinit var addTodo: Button
-
+    lateinit var viewDataBinding: FrameAddBinding
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(
-            R.layout.frame_add,
-            container, false
-        );
+//        return inflater.inflate(
+//            R.layout.frame_add,
+//            container, false
+//        );
+        viewDataBinding = DataBindingUtil.inflate(inflater,R.layout.frame_add,container,false)
+        return viewDataBinding.root
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViews()
@@ -58,7 +65,7 @@ class FrameDialoge_Add : BottomSheetDialogFragment() {
                 val title = titleLayout.editText?.text.toString();
                 val details = detailsLayout.editText?.text.toString();
                 InsertTodo_DataBase(title,details)
-              MyDataBase.getInstance(requireContext())
+              MyDatabase.getInsertion(requireContext())
 
             }
 
@@ -67,7 +74,7 @@ class FrameDialoge_Add : BottomSheetDialogFragment() {
 
     private fun InsertTodo_DataBase(title : String,details:String) {
         val entity_class=Todo(name =title, details = details, date = calendar.clearTime().time)
-        MyDataBase.getInstance(requireContext().applicationContext)
+        MyDatabase.getInsertion(requireContext().applicationContext)
             .todoDao().addTodo(entity_class)
         Toast.makeText(requireContext(), "Todo added successfully", Toast.LENGTH_LONG)
             .show();

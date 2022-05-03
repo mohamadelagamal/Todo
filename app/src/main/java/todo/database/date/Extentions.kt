@@ -1,8 +1,5 @@
-package todo.ui.DataBase
-
+package todo.database.date
 import java.util.*
-
-
 fun Calendar.clearTime():Calendar{
     this.clear(Calendar.SECOND)
     this.clear(Calendar.MINUTE)

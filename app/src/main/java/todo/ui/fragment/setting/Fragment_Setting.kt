@@ -1,11 +1,11 @@
-package todo.ui.FragmentHome
+package todo.ui.fragment.setting
 
-import Err.One.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import todo.ui.R
 
 class Fragment_Setting: Fragment() {
     override fun onCreateView(

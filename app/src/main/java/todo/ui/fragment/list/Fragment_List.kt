@@ -1,7 +1,5 @@
-package todo.ui.FragmentHome
-
-import Err.One.R
-import todo.ui.DataBase.clearTime
+package todo.ui.fragment.list
+import todo.database.date.clearTime
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,9 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView
-import com.route.todo_c35_sat.database.MyDataBase
+import todo.database.table.MyDatabase
+import todo.ui.R
+import todo.ui.fragment.list.adapter.Todo_Recyecler_Adapter_List
 import java.util.*
-
 class Fragment_List: Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,7 +24,7 @@ class Fragment_List: Fragment() {
     lateinit var recyclerView: RecyclerView
     //make object about calander
     lateinit var calendarView:MaterialCalendarView
-    val adatpter=Todo_Recyecler_Adapter_List(null)
+    val adatpter= Todo_Recyecler_Adapter_List(null)
     override fun onResume() {
         super.onResume()
         getTodoFromDatabase()
@@ -43,9 +42,9 @@ class Fragment_List: Fragment() {
 
    // date.clear()
 
-    val todoList=MyDataBase.getInstance(requireContext())
+    val todoList=MyDatabase.getInsertion(requireContext())
             //.todoDao().getAllTodos()
-            .todoDao().getTodosByDate(date.clearTime().time)
+            .todoDao().getTodoDate(date.clearTime().time)
         adatpter.ChangeData(todoList.toMutableList())    }
 
 //    private fun clearCalendarTime() {

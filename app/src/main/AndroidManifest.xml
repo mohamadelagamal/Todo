@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Err_One">
         <activity
-            android:name="todo.ui.SplashScreen"
+            android:name="todo.ui.splash.SplashScreen"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="todo.ui.MainActivity"
+            android:name="todo.ui.main.MainActivity"
             android:exported="true">
 
         </activity>
