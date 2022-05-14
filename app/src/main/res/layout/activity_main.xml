@@ -23,25 +23,17 @@
             app:layout_constraintVertical_bias="0.0"
             tools:layout_editor_absoluteX="0dp" />
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
+        <com.etebarian.meowbottomnavigation.MeowBottomNavigation
             android:layout_width="match_parent"
             android:id="@+id/NavigationHome"
-            android:layout_height="50dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:elevation="0dp"
-            app:menu="@menu/botton_navigation" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/FloatingActionButton"
-            android:onClick="@{()->vmHome.showDialog()}"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="25sp"
-            android:src="@drawable/ic_baseline_add_24"
-            app:elevation="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
+            android:layout_gravity="bottom"
+            app:elevation="0dp"
+            app:mbn_circleColor="@color/white"
+            app:mbn_backgroundBottomColor="@color/blue"
+            app:mbn_countBackgroundColor="#2D912A"
+            app:mbn_defaultIconColor="@color/white"
+            app:mbn_selectedIconColor="#4C4343"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

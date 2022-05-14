@@ -64,6 +64,7 @@ class FrameDialoge_Add : BottomSheetDialogFragment() {
                 // form is valid and insert Todo item
                 val title = titleLayout.editText?.text.toString();
                 val details = detailsLayout.editText?.text.toString();
+
                 InsertTodo_DataBase(title,details)
               MyDatabase.getInsertion(requireContext())
 

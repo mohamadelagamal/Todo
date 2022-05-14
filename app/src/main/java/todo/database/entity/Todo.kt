@@ -3,6 +3,7 @@ package todo.database.entity
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 import java.util.*
 
 
@@ -20,7 +21,7 @@ data class Todo (
     @ColumnInfo
     var date:Date?=null,
     @ColumnInfo
-    var isDone:Boolean?=null
-        ){
+    var isDone:Boolean?=false
+        ):Serializable{
 
 }

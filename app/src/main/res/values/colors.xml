@@ -8,5 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#5D9CEC</color>
-    <color name="blackDark">#060E1E</color>
+    <color name="blackDark">#2D65D5</color>
+    <color name="transpernet">#1444</color>
 </resources>
