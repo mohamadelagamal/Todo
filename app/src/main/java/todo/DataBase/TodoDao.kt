@@ -10,7 +10,7 @@ interface TodoDao {
     fun addTodo(todo: Todo)
 
     @Update
-    fun updateTodo(todo: Todo)
+     fun updateTodo(todo: Todo)
 
     @Delete
     fun deleteTodo(todo: Todo)
@@ -20,4 +20,7 @@ interface TodoDao {
 
     @Query("select * from Todo where date =:date ")
     fun getTodosByDate(date: Date): List<Todo>
+
+
+
 }

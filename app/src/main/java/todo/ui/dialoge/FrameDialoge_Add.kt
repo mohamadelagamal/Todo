@@ -1,6 +1,5 @@
 package com.route.todo_c35_sat
 
-import Err.One.R
 import todo.ui.DataBase.clearTime
 import android.app.DatePickerDialog
 import android.os.Bundle
@@ -10,10 +9,13 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.textfield.TextInputLayout
 import com.route.todo_c35_sat.database.MyDataBase
 import com.route.todo_c35_sat.database.model.Todo
+import todo.ui.R
 import java.util.*
 
 class FrameDialoge_Add : BottomSheetDialogFragment() {
@@ -22,15 +24,15 @@ class FrameDialoge_Add : BottomSheetDialogFragment() {
     lateinit var chooseDate: TextView
     lateinit var addTodo: Button
 
+    lateinit var viewDataBinding: ViewDataBinding
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(
-            R.layout.frame_add,
-            container, false
-        );
+    ): View {
+        viewDataBinding = DataBindingUtil.inflate(inflater,R.layout.frame_add,container,false)
+        //... root is the root element inflation
+        return viewDataBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -58,7 +60,7 @@ class FrameDialoge_Add : BottomSheetDialogFragment() {
                 val title = titleLayout.editText?.text.toString();
                 val details = detailsLayout.editText?.text.toString();
                 InsertTodo_DataBase(title,details)
-              MyDataBase.getInstance(requireContext())
+                MyDataBase.getInstance(requireContext())
 
             }
 

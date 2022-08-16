@@ -1,15 +1,29 @@
-package todo.ui
-import Err.One.R
-import todo.ui.FragmentHome.Fragment_List
-import todo.ui.FragmentHome.Fragment_Setting
+package todo.ui.home
+import android.app.PendingIntent.getActivity
+import android.content.res.Configuration
+import todo.ui.list.Fragment_List
+import todo.ui.setting.Fragment_Setting
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.room.Insert
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationBarView
 import com.route.todo_c35_sat.FrameDialoge_Add
+import com.route.todo_c35_sat.database.MyDataBase
+import com.route.todo_c35_sat.database.model.Todo
+import dagger.hilt.android.AndroidEntryPoint
+import todo.ui.R
+import todo.ui.databinding.ActivityMainBinding
+import java.util.*
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     lateinit var MainNavigation:BottomNavigationView
     lateinit var addButton :FloatingActionButton
@@ -18,9 +32,11 @@ class MainActivity : AppCompatActivity() {
     val AddBottonSheet= FrameDialoge_Add()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
+
         IntionlazingItems()
-       MainNavigation.selectedItemId=R.id.Details_Navigation
+        MainNavigation.selectedItemId=R.id.Details_Navigation
 
     }
     private fun IntionlazingItems() {
@@ -33,13 +49,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun FloatingFragmentDilago() {
         addButton.setOnClickListener{
-        //val addBottomSheet=FrameDialoge_Add()
+            //val addBottomSheet=FrameDialoge_Add()
             AddBottonSheet.show(supportFragmentManager,"")
             AddBottonSheet.onTodoAddedListener=object:FrameDialoge_Add.OnTodoAddedListener{
                 override fun onTodoAdded() {
-                   // Refresh to Todos list From database inside listFragment
+                    // Refresh to Todos list From database inside listFragment
                     if (Todo_Frame_List.isVisible)
-                    Todo_Frame_List.getTodoFromDatabase()
+                        Todo_Frame_List.getTodoFromDatabase()
                 }
             }
         }

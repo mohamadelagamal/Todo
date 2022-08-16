@@ -3,7 +3,7 @@ package com.route.todo_c35_sat.database
 import androidx.room.TypeConverter
 import java.util.*
 
-class DateConverter {
+class DateConverter  {
 
     @TypeConverter
     fun fromDate(date: Date): Long {
