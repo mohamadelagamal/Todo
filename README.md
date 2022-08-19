@@ -7,6 +7,8 @@ Light Mode
 Dark Mode
 
 ![todoDark](https://user-images.githubusercontent.com/86564639/166422899-3c403a47-285e-415d-9ccb-ddb42fbc1d69.png)
+# Video
+https://user-images.githubusercontent.com/86564639/185617490-667c7cc7-90f9-43f4-8eba-cec081fe9e75.mp4
 # Used Technology
 * [Kotlin](https://kotlinlang.org/) 
 * [Data Binding](https://developer.android.com/topic/libraries/data-binding/) -  Declaratively bind observable data to UI elements.
