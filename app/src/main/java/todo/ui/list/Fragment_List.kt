@@ -7,20 +7,30 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.route.todo_c35_sat.database.MyDataBase
 import com.route.todo_c35_sat.database.model.Todo
+import dagger.hilt.android.scopes.FragmentScoped
+import kotlinx.coroutines.launch
 import todo.model.Constant
+import todo.repo.SourceOfflineRepository
+import todo.repo.SourcesOfflineDataSourceImpl
 import todo.ui.list.adapter.Todo_Recyecler_Adapter_List
 import todo.ui.R
 import todo.ui.databinding.FragmentListBinding
 import todo.ui.details.DetailsTodoActivity
 import java.util.*
-
+import javax.inject.Inject
+@FragmentScoped
 class Fragment_List: Fragment() {
     lateinit var viewDataBinding:FragmentListBinding
+
+    lateinit var sourceOfflineRepository:SourceOfflineRepository
+
     val adapter= Todo_Recyecler_Adapter_List(null)
     var date=Calendar.getInstance()
     //make object about calander
@@ -34,9 +44,6 @@ class Fragment_List: Fragment() {
         return viewDataBinding.root
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
     override fun onResume() {
         super.onResume()
         getTodoFromDatabase()
@@ -49,15 +56,35 @@ class Fragment_List: Fragment() {
                 // send data
                 startChatActiviy(room)
             }
+
+            override fun onItemDelete(pos: Int, room: Todo) {
+                MyDataBase.getInstance(requireContext())
+                    .todoDao().deleteTodo(room)
+                Toast.makeText(requireContext(), "successfully deleted", Toast.LENGTH_LONG)
+                    .show();
+               getTodoFromDatabase()
+            }
+
+            override fun makeDone(pos: Int, room: Todo) {
+                val entity_class=Todo(id=room.id, name =room.name, details = room.details,
+                    date = room.date, isDone = true)
+                MyDataBase.getInstance(requireContext())
+                    .todoDao().updateTodo(entity_class)
+            }
         }
     }
 
-     fun getTodoFromDatabase() {
-        val todoList=MyDataBase.getInstance(requireContext())
-                //.todoDao().getAllTodos()
-                .todoDao().getTodosByDate(date.clearTime().time)
-            adapter.ChangeData(todoList.toMutableList())
-        }
+      fun getTodoFromDatabase() {
+          sourceOfflineRepository= SourcesOfflineDataSourceImpl(MyDataBase.getInstance(requireContext()))
+
+          lifecycleScope.launch {
+              val todoList = sourceOfflineRepository
+                  .getSourceFromData(data = date.clearTime().time)
+              adapter.ChangeData(todoList.toMutableList())
+          }
+
+
+         }
     private fun initialzationItem() {
         viewDataBinding.RecyclerHome.adapter=adapter
         viewDataBinding.calendarViewHome.selectedDate= CalendarDay.today();

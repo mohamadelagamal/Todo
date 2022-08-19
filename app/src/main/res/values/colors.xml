@@ -10,4 +10,7 @@
     <color name="blue">#5D9CEC</color>
     <color name="blackDark">#060E1E</color>
     <color name="setting_background">#DFECDB</color>
+    <color name="orange">#FF5E00</color>
+    <color name="read">#FD0B0B</color>
+    <color name="grean">#61E757</color>
 </resources>

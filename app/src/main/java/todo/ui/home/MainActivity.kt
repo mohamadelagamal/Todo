@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             //val addBottomSheet=FrameDialoge_Add()
             AddBottonSheet.show(supportFragmentManager,"")
             AddBottonSheet.onTodoAddedListener=object:FrameDialoge_Add.OnTodoAddedListener{
-                override fun onTodoAdded() {
+                override  fun onTodoAdded() {
                     // Refresh to Todos list From database inside listFragment
                     if (Todo_Frame_List.isVisible)
                         Todo_Frame_List.getTodoFromDatabase()
