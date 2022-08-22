@@ -11,7 +11,7 @@ Dark Mode
 https://user-images.githubusercontent.com/86564639/185617490-667c7cc7-90f9-43f4-8eba-cec081fe9e75.mp4
 # Used Technology
 * [Kotlin](https://kotlinlang.org/) 
-* [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) 
+* [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) - Hilt is a dependency injection library for Android that reduces the boilerplate of doing manual dependency injection in your project
 * [Data Binding](https://developer.android.com/topic/libraries/data-binding/) -  Declaratively bind observable data to UI elements.
 * [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) - Build data objects that notify views when the underlying database changes.
 * [ViewModel ](https://developer.android.com/topic/libraries/architecture/viewmodel) 
