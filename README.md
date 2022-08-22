@@ -15,7 +15,7 @@ https://user-images.githubusercontent.com/86564639/185617490-667c7cc7-90f9-43f4-
 * [Data Binding](https://developer.android.com/topic/libraries/data-binding/) -  Declaratively bind observable data to UI elements.
 * [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) - Build data objects that notify views when the underlying database changes.
 * [swipereveallayout](https://github.com/chthai64/SwipeRevealLayout) - A layout that you can swipe/slide to show another layout.
-* [livedata ](https://developer.android.com/topic/libraries/architecture/livedata) - s an observable data holder class. Unlike a regular observable, LiveData is lifecycle-aware, meaning it respects the lifecycle of other app components, such as activities, fragments, or services. This awareness ensures LiveData only updates app component observers that are in an active lifecycle state.
+* [livedata ](https://developer.android.com/topic/libraries/architecture/livedata) - is an observable data holder class. Unlike a regular observable, LiveData is lifecycle-aware, meaning it respects the lifecycle of other app components, such as activities, fragments, or services. This awareness ensures LiveData only updates app component observers that are in an active lifecycle state.
 * [ViewModel ](https://developer.android.com/topic/libraries/architecture/viewmodel) 
 * [Room](https://developer.android.com/training/data-storage/room) - Access your app's SQLite database with in-app objects and compile-time checks.
 # Architecture pattern Used
