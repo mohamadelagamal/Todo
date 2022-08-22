@@ -26,7 +26,9 @@
         </activity>
         <activity
             android:name="todo.ui.home.MainActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+
+        </activity>
 
     </application>
 

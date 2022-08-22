@@ -32,6 +32,9 @@ abstract class MyDataBase : RoomDatabase() {
             }
             return myDataBase!!;
         }
+        fun returnRoom():MyDataBase{
+            return myDataBase !!
+        }
     }
 
 }

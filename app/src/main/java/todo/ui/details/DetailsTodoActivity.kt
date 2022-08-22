@@ -4,13 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.base.BaseActivity
+import dagger.hilt.android.AndroidEntryPoint
 import todo.model.Constant
 import todo.ui.R
 import todo.ui.databinding.ActivityDetailsTodoBinding
 import todo.ui.home.MainActivity
 
+@AndroidEntryPoint
 class DetailsTodoActivity : BaseActivity<ActivityDetailsTodoBinding,DetailsViewModel>(),Navigator {
-
     // to sorted messages
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

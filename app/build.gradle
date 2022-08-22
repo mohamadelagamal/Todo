@@ -2,11 +2,10 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
-    id("kotlin-parcelize")
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
 
 }
-apply plugin: 'dagger.hilt.android.plugin'
-
 android {
     compileSdk 31
 
@@ -67,10 +66,15 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    implementation("com.google.dagger:hilt-android:2.38.1")
-    kapt("com.google.dagger:hilt-android-compiler:2.38.1")
+
+    // Dagger Hilt
+    implementation "com.google.dagger:hilt-android:2.43.2"
+    kapt "com.google.dagger:hilt-android-compiler:2.43.2"
     // swipe items
    implementation 'com.chauthai.swipereveallayout:swipe-reveal-layout:1.4.1'
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1")
 
+}
+hilt {
+    enableAggregatingTask = true
 }

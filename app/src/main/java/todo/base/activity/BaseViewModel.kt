@@ -4,8 +4,6 @@ import android.app.Activity
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import java.security.AccessController.getContext
-
 
 abstract class BaseViewModel<N>:ViewModel(){
     var navigator:N?=null

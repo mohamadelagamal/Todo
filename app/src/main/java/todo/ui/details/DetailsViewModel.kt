@@ -10,16 +10,17 @@ import androidx.lifecycle.viewModelScope
 import com.base.BaseViewModel
 import com.route.todo_c35_sat.database.MyDataBase
 import com.route.todo_c35_sat.database.model.Todo
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import todo.repo.SourceOfflineRepository
 import todo.repo.SourcesOfflineDataSourceImpl
 import todo.ui.DataBase.clearTime
 import java.util.*
-
-class DetailsViewModel:BaseViewModel<Navigator>() {
-
+import javax.inject.Inject
+@HiltViewModel
+class DetailsViewModel @Inject constructor
+    (var sourceOfflineRepository: SourceOfflineRepository):BaseViewModel<Navigator>() {
     lateinit var room: Todo
-    lateinit var sourceOfflineRepository: SourceOfflineRepository
     val title = ObservableField<String>()
     val details =ObservableField<String>()
     val choiceData = ObservableField<String>()
@@ -60,9 +61,7 @@ class DetailsViewModel:BaseViewModel<Navigator>() {
         viewModelScope.launch {
             val entity_class=Todo(id=room.id, name =title, details = details,
                 date = calendar.clearTime().time, isDone = room.isDone)
-            sourceOfflineRepository = SourcesOfflineDataSourceImpl(MyDataBase.getInstance(context))
-//        MyDataBase.getInstance(context)
-//            .todoDao().updateTodo(entity_class)
+           // sourceOfflineRepository = SourcesOfflineDataSourceImpl(MyDataBase.getInstance(context))
             sourceOfflineRepository.updateDate(entity_class)
             Toast.makeText(context, "Todo added successfully", Toast.LENGTH_LONG)
                 .show();

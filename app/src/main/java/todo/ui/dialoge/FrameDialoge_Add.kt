@@ -11,19 +11,26 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.textfield.TextInputLayout
 import com.route.todo_c35_sat.database.MyDataBase
 import com.route.todo_c35_sat.database.model.Todo
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+import todo.repo.SourceOfflineRepository
+import todo.repo.SourcesOfflineDataSourceImpl
 import todo.ui.R
 import java.util.*
-
+import javax.inject.Inject
+@AndroidEntryPoint
 class FrameDialoge_Add : BottomSheetDialogFragment() {
     lateinit var titleLayout: TextInputLayout
     lateinit var detailsLayout: TextInputLayout
     lateinit var chooseDate: TextView
     lateinit var addTodo: Button
-
+    //
+     @Inject lateinit var sourceOfflineRepository:SourceOfflineRepository
     lateinit var viewDataBinding: ViewDataBinding
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -69,8 +76,10 @@ class FrameDialoge_Add : BottomSheetDialogFragment() {
 
     private fun InsertTodo_DataBase(title : String,details:String) {
         val entity_class=Todo(name =title, details = details, date = calendar.clearTime().time)
-        MyDataBase.getInstance(requireContext().applicationContext)
-            .todoDao().addTodo(entity_class)
+//        sourceOfflineRepository = SourcesOfflineDataSourceImpl(MyDataBase.getInstance(requireContext()))
+        lifecycleScope.launch {
+            sourceOfflineRepository.addTodo(entity_class)
+        }
         Toast.makeText(requireContext(), "Todo added successfully", Toast.LENGTH_LONG)
             .show();
         // call back to activity to notify insertion

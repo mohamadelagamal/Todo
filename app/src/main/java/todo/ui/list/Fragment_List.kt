@@ -14,7 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.route.todo_c35_sat.database.MyDataBase
 import com.route.todo_c35_sat.database.model.Todo
-import dagger.hilt.android.scopes.FragmentScoped
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import todo.model.Constant
 import todo.repo.SourceOfflineRepository
@@ -25,15 +25,13 @@ import todo.ui.databinding.FragmentListBinding
 import todo.ui.details.DetailsTodoActivity
 import java.util.*
 import javax.inject.Inject
-@FragmentScoped
+@AndroidEntryPoint
 class Fragment_List: Fragment() {
     lateinit var viewDataBinding:FragmentListBinding
-
-    lateinit var sourceOfflineRepository:SourceOfflineRepository
-
+    @Inject lateinit var sourceOfflineRepository:SourceOfflineRepository
     val adapter= Todo_Recyecler_Adapter_List(null)
     var date=Calendar.getInstance()
-    //make object about calander
+    // make object about calander
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -51,6 +49,7 @@ class Fragment_List: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initialzationItem()
+
         adapter.onItemClickListener = object : Todo_Recyecler_Adapter_List.OnItemClickListener {
             override fun onItemClick(pos: Int, room: Todo) {
                 // send data
@@ -58,8 +57,9 @@ class Fragment_List: Fragment() {
             }
 
             override fun onItemDelete(pos: Int, room: Todo) {
-                MyDataBase.getInstance(requireContext())
-                    .todoDao().deleteTodo(room)
+                lifecycleScope.launch {
+                    sourceOfflineRepository.deleteTodo(room)
+                }
                 Toast.makeText(requireContext(), "successfully deleted", Toast.LENGTH_LONG)
                     .show();
                getTodoFromDatabase()
@@ -68,14 +68,15 @@ class Fragment_List: Fragment() {
             override fun makeDone(pos: Int, room: Todo) {
                 val entity_class=Todo(id=room.id, name =room.name, details = room.details,
                     date = room.date, isDone = true)
-                MyDataBase.getInstance(requireContext())
-                    .todoDao().updateTodo(entity_class)
+                lifecycleScope.launch{
+                    sourceOfflineRepository.updateDate(entity_class)
+                }
             }
         }
     }
 
       fun getTodoFromDatabase() {
-          sourceOfflineRepository= SourcesOfflineDataSourceImpl(MyDataBase.getInstance(requireContext()))
+        //  sourceOfflineRepository= SourcesOfflineDataSourceImpl(MyDataBase.getInstance(requireContext()))
 
           lifecycleScope.launch {
               val todoList = sourceOfflineRepository
