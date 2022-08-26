@@ -17,7 +17,10 @@ https://user-images.githubusercontent.com/86564639/185617490-667c7cc7-90f9-43f4-
 * [swipereveallayout](https://github.com/chthai64/SwipeRevealLayout) - A layout that you can swipe/slide to show another layout.
 * [livedata ](https://developer.android.com/topic/libraries/architecture/livedata) - is an observable data holder class. Unlike a regular observable, LiveData is lifecycle-aware, meaning it respects the lifecycle of other app components, such as activities, fragments, or services. This awareness ensures LiveData only updates app component observers that are in an active lifecycle state.
 * [ViewModel ](https://developer.android.com/topic/libraries/architecture/viewmodel) 
+* [Repository Pattern ](https://developer.android.com/codelabs/basic-android-kotlin-training-repository-pattern#0) 
 * [Room](https://developer.android.com/training/data-storage/room) - Access your app's SQLite database with in-app objects and compile-time checks.
 # Architecture pattern Used
 * [MVVM](https://developer.android.com/jetpack/guide)
 ![imageMvvm](https://user-images.githubusercontent.com/86564639/166190272-31dac1e8-1419-48b6-8db5-a3fa96b69f51.png)
+* [The Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+![CleanArchitecture (1)](https://user-images.githubusercontent.com/86564639/186997000-5b9dd004-3a76-404e-8982-3726635a1921.jpg)
