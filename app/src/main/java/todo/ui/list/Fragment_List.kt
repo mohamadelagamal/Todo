@@ -12,13 +12,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.prolificinteractive.materialcalendarview.CalendarDay
-import com.route.todo_c35_sat.database.MyDataBase
-import com.route.todo_c35_sat.database.model.Todo
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import todo.model.Constant
-import todo.repo.SourceOfflineRepository
-import todo.repo.SourcesOfflineDataSourceImpl
+import com.example.usercase.model.Constant
+import com.example.usercase.repos.SourceOfflineRepository
+import com.example.usercase.room.Todo
 import todo.ui.list.adapter.Todo_Recyecler_Adapter_List
 import todo.ui.R
 import todo.ui.databinding.FragmentListBinding
@@ -28,7 +26,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class Fragment_List: Fragment() {
     lateinit var viewDataBinding:FragmentListBinding
-    @Inject lateinit var sourceOfflineRepository:SourceOfflineRepository
+    @Inject lateinit var sourceOfflineRepository: SourceOfflineRepository
     val adapter= Todo_Recyecler_Adapter_List(null)
     var date=Calendar.getInstance()
     // make object about calander

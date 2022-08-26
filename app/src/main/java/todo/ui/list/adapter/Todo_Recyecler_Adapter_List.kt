@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.route.todo_c35_sat.database.model.Todo
+import com.example.usercase.room.Todo
 import todo.ui.R
 import todo.ui.databinding.ItemTodoRecycleBinding
 

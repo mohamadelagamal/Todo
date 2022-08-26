@@ -6,7 +6,7 @@
     <data>
         <variable
             name="vmTodo"
-            type="com.route.todo_c35_sat.database.model.Todo" />
+            type="com.example.usercase.room.Todo" />
     </data>
     <com.chauthai.swipereveallayout.SwipeRevealLayout
         android:layout_width="match_parent"

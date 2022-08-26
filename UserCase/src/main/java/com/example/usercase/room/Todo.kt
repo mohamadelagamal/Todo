@@ -1,4 +1,4 @@
-package com.route.todo_c35_sat.database.model
+package com.example.usercase.room
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo

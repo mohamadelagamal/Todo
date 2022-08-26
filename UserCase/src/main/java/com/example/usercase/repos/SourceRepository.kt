@@ -1,8 +1,8 @@
-package todo.repo
+package com.example.usercase.repos
 
-import com.route.todo_c35_sat.database.model.Todo
 
 import androidx.room.*
+import com.example.usercase.room.Todo
 import java.util.*
 
 interface SourceOfflineRepository {

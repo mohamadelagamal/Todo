@@ -1,9 +1,8 @@
-package todo.repo
+package com.example.usercase.repos
 
+import com.example.usercase.room.Todo
 import com.route.todo_c35_sat.database.MyDataBase
-import com.route.todo_c35_sat.database.model.Todo
 import java.util.*
-import javax.inject.Inject
 
 class SourcesOfflineDataSourceImpl (val myDataBase: MyDataBase)
     :SourceOfflineRepository{

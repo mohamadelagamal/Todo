@@ -1,4 +1,4 @@
-package todo.model
+package com.example.usercase.model
 
 object Constant {
 

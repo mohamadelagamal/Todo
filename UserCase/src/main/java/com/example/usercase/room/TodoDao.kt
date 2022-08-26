@@ -1,7 +1,6 @@
-package com.route.todo_c35_sat.database.dao
+package com.example.usercase.room
 
 import androidx.room.*
-import com.route.todo_c35_sat.database.model.Todo
 import java.util.*
 
 @Dao

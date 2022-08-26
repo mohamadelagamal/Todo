@@ -8,12 +8,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.base.BaseViewModel
+import com.example.usercase.repos.SourceOfflineRepository
+import com.example.usercase.room.Todo
 import com.route.todo_c35_sat.database.MyDataBase
-import com.route.todo_c35_sat.database.model.Todo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import todo.repo.SourceOfflineRepository
-import todo.repo.SourcesOfflineDataSourceImpl
 import todo.ui.DataBase.clearTime
 import java.util.*
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package todo.model
+package todo
 
 import android.app.Application
 import com.route.todo_c35_sat.database.MyDataBase

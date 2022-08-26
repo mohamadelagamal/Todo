@@ -5,8 +5,8 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.route.todo_c35_sat.database.dao.TodoDao
-import com.route.todo_c35_sat.database.model.Todo
+import com.example.usercase.room.Todo
+import com.example.usercase.room.TodoDao
 
 @Database(entities = [Todo::class], version = 1)
 @TypeConverters(DateConverter::class)

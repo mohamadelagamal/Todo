@@ -11,3 +11,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Err_One"
 include ':app'
+include ':UserCase'

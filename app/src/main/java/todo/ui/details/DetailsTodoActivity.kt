@@ -4,8 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.base.BaseActivity
+import com.example.usercase.model.Constant
 import dagger.hilt.android.AndroidEntryPoint
-import todo.model.Constant
 import todo.ui.R
 import todo.ui.databinding.ActivityDetailsTodoBinding
 import todo.ui.home.MainActivity

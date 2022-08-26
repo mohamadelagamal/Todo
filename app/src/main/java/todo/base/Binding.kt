@@ -1,4 +1,4 @@
-package todo.model
+package com.example.usercase.model
 
 import com.google.android.material.textfield.TextInputLayout
 import java.lang.Error

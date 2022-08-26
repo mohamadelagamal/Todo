@@ -5,24 +5,13 @@ import todo.ui.list.Fragment_List
 import todo.ui.setting.Fragment_Setting
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.room.Insert
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationBarView
 import com.route.todo_c35_sat.FrameDialoge_Add
-import com.route.todo_c35_sat.database.MyDataBase
-import com.route.todo_c35_sat.database.model.Todo
 import dagger.hilt.android.AndroidEntryPoint
-import todo.repo.SourceOfflineRepository
 import todo.ui.R
-import todo.ui.databinding.ActivityMainBinding
-import java.util.*
-import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     lateinit var MainNavigation:BottomNavigationView
